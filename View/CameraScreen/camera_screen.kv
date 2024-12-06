@@ -1,0 +1,48 @@
+#:import Preview camera4kivy
+<CameraScreenView>
+    photo_preview: preview
+    MDBoxLayout:
+        id: screen_container
+        orientation: 'vertical'
+            
+        MDTopAppBar:
+            title: "Camera Screen"
+            left_action_items: [["arrow-left", lambda x: (setattr(app.manager_screens, "current", "home screen"), app.stop_camera())]]
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            id: camera_container
+
+            Preview:
+                id: preview
+                aspect_ratio: '16:9'
+                size_hint_y: 1  # Occupies the remaining vertical space
+
+            MDRelativeLayout:
+                size_hint_y: None
+                height: dp(80)  # Adjust height as needed for your buttons
+                md_bg_color: app.theme_cls.primary_color
+                Button:
+                    id: other
+                    on_press: root.select_camera('toggle')
+                    size_hint: None, None
+                    width: dp(50)  # Set desired width
+                    height: dp(50)  # Set desired height
+                    background_normal: 'assets/images/icons/camera-flip-outline.png'
+                    background_down:   'assets/images/icons/camera-flip-outline.png'
+                Button:
+                    id: flash
+                    on_press: root.flash()
+                    size_hint: None, None
+                    width: dp(50)
+                    height: dp(50)
+                    background_normal: 'assets/images/icons/flash-off.png'
+                    background_down:   'assets/images/icons/flash-off.png'
+                Button:
+                    id: photo
+                    on_press: root.photo()
+                    size_hint: None, None
+                    width: dp(50)
+                    height: dp(50)
+                    background_normal: 'assets/images/icons/camera_white.png'
+                    background_down:   'assets/images/icons/camera_red.png'

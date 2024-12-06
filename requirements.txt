@@ -1,0 +1,6 @@
+kivy==2.1.0
+kivymd==1.2.0
+camera4kivy
+gestures4kivy
+olefile
+watchdog

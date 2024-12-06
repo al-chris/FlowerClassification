@@ -1,0 +1,23 @@
+<HomeScreenView>
+    # BoxLayout:
+    #     orientation: 'vertical'
+    #     pos_hint: {"top":1}
+    #     adaptive_height: True
+    #     # Label:
+    #     #     text: 'Welcome to the Home Screen'
+    #     MDIconButton:
+    #         icon: 'plus'
+    #         font_size: 36
+    #         increment_width: 100
+
+    MDRelativeLayout:
+        orientation: 'vertical'
+        # md_bg_color: app.theme_cls.primary_palette
+        md_bg_color: 0, 0, 1, 0.5
+        MDIconButton:
+            icon: 'plus'
+            font_size: 36
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+            # on_press: root.manager_screens.current = "camera screen"
+            on_press: app.switch_to_camera_screen()
